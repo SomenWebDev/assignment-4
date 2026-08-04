@@ -3,9 +3,9 @@ import { ZodError } from "zod";
 import jwt from "jsonwebtoken";
 import httpStatus from "http-status";
 
-import { Prisma } from "../../prisma/generated/prisma/client";
 import config from "../config";
 import { AppError } from "../utils/app-errorr";
+import { Prisma } from "../../prisma/generated/prisma/client";
 const { JsonWebTokenError, TokenExpiredError } = jwt;
 
 export const globalErrorHandler = (

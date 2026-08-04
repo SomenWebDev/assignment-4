@@ -15,6 +15,14 @@ export function signAccessToken(payload: UserJwtPayload) {
 export function signRefreshToken(payload: UserJwtPayload) {
   return jwt.sign(payload, config.JWT_REFRESH_SECRET, { expiresIn: "7d" });
 }
+
+export function createTokenPair(payload: UserJwtPayload) {
+  return {
+    accessToken: signAccessToken(payload),
+    refreshToken: signRefreshToken(payload),
+  };
+}
+
 export function verifyAccessToken(token: string) {
   return jwt.verify(token, config.JWT_ACCESS_SECRET) as UserJwtPayload;
 }
