@@ -13,9 +13,11 @@ model GearItem {
   provider   User   @relation("ProviderGear", fields: [providerId], references: [id])
 
   categoryId  String
-  category    Category          @relation(fields: [categoryId], references: [id])
+  category    Category          @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   rentalItems RentalOrderItem[]
   reviews     Review[]
 
+  @@index([providerId])
+  @@index([categoryId])
   @@map("gear_items")
 }

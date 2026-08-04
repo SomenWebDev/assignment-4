@@ -9,5 +9,7 @@ model RentalOrderItem {
   gearItemId String
   gearItem   GearItem @relation(fields: [gearItemId], references: [id])
 
+  @@index([rentalOrderId])
+  @@index([gearItemId])
   @@map("rental_order_items")
 }

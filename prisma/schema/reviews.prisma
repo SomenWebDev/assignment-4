@@ -10,5 +10,7 @@ model Review {
   gearItemId String
   gearItem   GearItem @relation(fields: [gearItemId], references: [id])
 
+  @@index([customerId])
+  @@index([gearItemId])
   @@map("reviews")
 }

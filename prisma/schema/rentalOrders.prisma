@@ -22,5 +22,6 @@ model RentalOrder {
   items    RentalOrderItem[]
   payments Payment[]
 
+  @@index([customerId])
   @@map("rental_orders")
 }

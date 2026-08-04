@@ -21,5 +21,6 @@ model Payment {
   rentalOrderId String
   rentalOrder   RentalOrder @relation(fields: [rentalOrderId], references: [id])
 
+  @@index([rentalOrderId])
   @@map("payments")
 }
