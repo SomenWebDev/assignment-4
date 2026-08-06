@@ -11,6 +11,7 @@ import cors from "cors";
 import authRouter from "./modules/auth/auth.route";
 import gearRouter from "./modules/gear/gear.route";
 import categoryRouter from "./modules/category/category.route";
+import rentalRouter from "./modules/rental/rental.route";
 const app: Application = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -28,6 +29,7 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/api/auth", authRouter);
 app.use("/api/gear", gearRouter);
 app.use("/api/categories", categoryRouter);
+app.use("/api/rentals", rentalRouter);
 
 app.use(notFoundHandler);
 
