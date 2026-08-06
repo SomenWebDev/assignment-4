@@ -1,10 +1,10 @@
 import httpStatus from "http-status";
 import type { Request, Response } from "express";
-import { catchAsync } from "../utils/catchAsync";
+import { catchAsync } from "../../utils/catchAsync";
 
 import { getMe, loginUser, registerUser } from "./auth.service";
 import { loginSchema, registerSchema } from "./auth.validation";
-import { sendResponse } from "../utils/sendRsponse";
+import { sendResponse } from "../../utils/sendRsponse";
 
 export const register = catchAsync(async (req: Request, res: Response) => {
   const input = registerSchema.parse(req.body);

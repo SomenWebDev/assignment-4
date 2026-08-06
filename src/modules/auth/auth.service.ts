@@ -6,10 +6,10 @@ import {
   signAccessToken,
   signRefreshToken,
   type UserJwtPayload,
-} from "../utils/jwt";
-import prisma from "../lib/prisma";
-import { AppError } from "../utils/app-errorr";
-import { UserStatus } from "../../prisma/generated/prisma/enums";
+} from "../../utils/jwt";
+import prisma from "../../lib/prisma";
+import { AppError } from "../../utils/app-errorr";
+import { UserStatus } from "../../../prisma/generated/prisma/enums";
 
 function toJwtPayload(user: {
   id: string;

@@ -8,14 +8,14 @@ import { notFoundHandler } from "./middleware/notFound";
 import { globalErrorHandler } from "./middleware/globalErrorHandler";
 import config from "./config";
 import cors from "cors";
-import authRouter from "./modules/auth.route";
+import authRouter from "./modules/auth/auth.route";
 const app: Application = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: config.APP_URL,
+    origin: true,
     credentials: true,
   }),
 );
@@ -28,7 +28,5 @@ app.use("/api/auth", authRouter);
 app.use(notFoundHandler);
 
 app.use(globalErrorHandler);
-
-app.use("/auth", authRouter);
 
 export default app;
