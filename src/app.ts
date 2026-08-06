@@ -9,6 +9,7 @@ import { globalErrorHandler } from "./middleware/globalErrorHandler";
 import config from "./config";
 import cors from "cors";
 import authRouter from "./modules/auth/auth.route";
+import gearRouter from "./modules/gear/gear.route";
 const app: Application = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -24,6 +25,7 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Hello World?");
 });
 app.use("/api/auth", authRouter);
+app.use("/api/gear", gearRouter);
 
 app.use(notFoundHandler);
 

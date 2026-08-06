@@ -13,7 +13,7 @@ model GearItem {
   provider   User   @relation("ProviderGear", fields: [providerId], references: [id])
 
   categoryId  String
-  category    Category          @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  category    Category          @relation(fields: [categoryId], references: [id], onDelete: Restrict)
   rentalItems RentalOrderItem[]
   reviews     Review[]
 
