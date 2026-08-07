@@ -18,7 +18,7 @@ model Payment {
   paidAt        DateTime?
   createdAt     DateTime      @default(now())
 
-  rentalOrderId String
+  rentalOrderId String      @unique
   rentalOrder   RentalOrder @relation(fields: [rentalOrderId], references: [id])
 
   @@index([rentalOrderId])
