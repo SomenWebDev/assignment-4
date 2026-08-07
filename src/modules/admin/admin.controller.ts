@@ -7,9 +7,10 @@ import {
   getUserById,
   updateUserStatus,
   getAllRentalOrders,
+  getAllGearItems,
 } from "./admin.service";
-import { catchAsync } from "../../utils/catchAsync";
 import { sendResponse } from "../../utils/sendRsponse";
+import { catchAsync } from "../../utils/catchAsync";
 
 export const getUsers = catchAsync(async (req: Request, res: Response) => {
   const users = await getAllUsers();
@@ -57,5 +58,16 @@ export const getRentals = catchAsync(async (req: Request, res: Response) => {
     statusCode: httpStatus.OK,
     message: "All rental orders retrieved successfully",
     data: orders,
+  });
+});
+
+export const getGearItems = catchAsync(async (req: Request, res: Response) => {
+  const gear = await getAllGearItems();
+
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "All gear items retrieved successfully",
+    data: gear,
   });
 });

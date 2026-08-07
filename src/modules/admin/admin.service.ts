@@ -83,3 +83,13 @@ export async function getAllRentalOrders() {
     orderBy: { createdAt: "desc" },
   });
 }
+
+export async function getAllGearItems() {
+  return prisma.gearItem.findMany({
+    include: {
+      category: true,
+      provider: { select: { id: true, name: true, email: true } },
+    },
+    orderBy: { createdAt: "desc" },
+  });
+}
