@@ -5,6 +5,7 @@ import { createReview } from "./review.service";
 import { createReviewSchema } from "./review.validation";
 import { catchAsync } from "../../utils/catchAsync";
 import { sendResponse } from "../../utils/sendRsponse";
+// fixed typo
 
 export const addReview = catchAsync(async (req: Request, res: Response) => {
   const input = createReviewSchema.parse(req.body);
