@@ -1,7 +1,6 @@
 import type { Request, Response } from "express";
 import httpStatus from "http-status";
-import { catchAsync } from "../../utils/catch-async";
-import { sendResponse } from "../../utils/send-response";
+
 import { userIdParamSchema, updateUserStatusSchema } from "./admin.validation";
 import {
   getAllUsers,
@@ -9,6 +8,8 @@ import {
   updateUserStatus,
   getAllRentalOrders,
 } from "./admin.service";
+import { catchAsync } from "../../utils/catchAsync";
+import { sendResponse } from "../../utils/sendRsponse";
 
 export const getUsers = catchAsync(async (req: Request, res: Response) => {
   const users = await getAllUsers();
