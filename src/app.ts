@@ -16,6 +16,7 @@ import rentalRouter from "./modules/rental/rental.route";
 import paymentRouter from "./modules/payment/payment.route";
 import { stripeWebhook } from "./modules/payment/payment.controller";
 import reviewRouter from "./modules/review/review.route";
+import adminRouter from "./modules/admin/admin.route";
 
 const app: Application = express();
 app.post(
@@ -44,6 +45,7 @@ app.use("/api/rentals", rentalRouter);
 app.use("/api/payments", paymentRouter);
 
 app.use("/api/reviews", reviewRouter);
+app.use("/api/admin", adminRouter);
 app.use(notFoundHandler);
 
 app.use(globalErrorHandler);
